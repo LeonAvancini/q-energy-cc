@@ -1,0 +1,106 @@
+import renderCellExpand from "./renderCellExpand";
+
+export const tableColumns = [
+  {
+    field: "id",
+    headerName: "ID",
+    type: "number",
+    width: 70,
+    description: "This column is not sortable.",
+  },
+  {
+    field: "project_name",
+    headerName: "Project Name",
+    width: 130,
+    description: "This column is not sortable.",
+    sortable: false,
+    editable: true,
+  },
+
+  {
+    field: "operating",
+    headerName: "Operating",
+    type: "boolean",
+    width: 100,
+    description: "This column is not sortable.",
+    sortable: false,
+    editable: true,
+    valueGetter: (params) => (params.row.operating === "true" ? true : false),
+  },
+  {
+    field: "project_status",
+    headerName: "Status",
+    width: 130,
+    editable: true,
+    type: "singleSelect",
+    valueOptions: ["Acquisition", "In Developement", "Execution"],
+  },
+  {
+    field: "technology",
+    headerName: "Technology",
+    width: 100,
+    editable: true,
+    type: "singleSelect",
+    valueOptions: ["Wind", "PV", "CSP"],
+  },
+  {
+    field: "project_number",
+    headerName: "Project number",
+    type: "number",
+    width: 120,
+    description: "This column is not sortable.",
+    sortable: false,
+    editable: true,
+  },
+  {
+    field: "country",
+    headerName: "Country",
+    width: 130,
+    editable: true,
+    type: "singleSelect",
+    valueOptions: ["Germany", "Spain", "UK"],
+  },
+
+  {
+    field: "wind_turbines",
+    headerName: "Wind Turbines",
+    width: 400,
+    description: "This column is not sortable.",
+    sortable: false,
+    editable: true,
+  },
+  {
+    field: "total_kW",
+    headerName: "Total kW",
+    type: "number",
+    width: 130,
+    description: "This column is not sortable.",
+    sortable: false,
+    editable: true,
+  },
+  {
+    field: "regions",
+    headerName: "Regions",
+    width: 400,
+    description: "This column is not sortable.",
+    sortable: false,
+    editable: true,
+  },
+  {
+    field: "responsible_people",
+    headerName: "Responsible people",
+    width: 300,
+    editable: true,
+  },
+  {
+    field: "notes",
+    renderCell: renderCellExpand,
+    headerName: "Notes",
+    description: "Notes are not sortable.",
+    sortable: false,
+    width: 200,
+    editable: true,
+  },
+];
+
+export default tableColumns;

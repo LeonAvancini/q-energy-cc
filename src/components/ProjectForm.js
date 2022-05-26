@@ -180,7 +180,7 @@ export const ProjectForm = ({ newProject, closeModal }) => {
             />
           </Grid>
           <Grid item>
-            <FormControl fullWidth>
+            <FormControl sx={{ width: 356 }}>
               <InputLabel id="responsible-people-label">
                 Responsible people
               </InputLabel>
