@@ -13,17 +13,24 @@ import { DASHBOARD, HOME, LOGIN } from "./routes";
 const AppRouter = () => {
   return (
     <Router>
-      <Header />
-      <main>
-        <Routes>
-          <Route path={LOGIN} element={<Login />} />
-          <Route element={<PrivateRoute />}>
-            <Route exact path={HOME} element={<Home />} />
-            <Route exact path={DASHBOARD} element={<Dashboard />} />
-          </Route>
-        </Routes>
-      </main>
-      <Footer />
+      <div
+        style={{
+          height: "100vh",
+          position: "relative",
+        }}
+      >
+        <Header />
+        <main style={{ padding: "0px 30px" }}>
+          <Routes>
+            <Route path={LOGIN} element={<Login />} />
+            <Route element={<PrivateRoute />}>
+              <Route exact path={HOME} element={<Home />} />
+              <Route exact path={DASHBOARD} element={<Dashboard />} />
+            </Route>
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 };

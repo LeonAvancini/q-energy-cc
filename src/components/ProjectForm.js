@@ -67,14 +67,14 @@ export const ProjectForm = ({ newProject, closeModal }) => {
         transform: "translate(-50%, -50%)",
         width: 380,
         background: "white",
-        border: "2px solid #000",
+        border: "2px solid #fafafa",
         borderRadius: 10,
         boxShadow: 24,
         padding: 10,
       }}
     >
       <Typography align="center" variant="h5">
-        Project form
+        Create a project
       </Typography>
 
       <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>

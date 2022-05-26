@@ -1,11 +1,22 @@
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import React from "react";
 
 export const Footer = () => {
   return (
-    <Grid container style={{ borderTop: "1px solid gray" }}>
+    <Grid
+      container
+      justifyContent="center"
+      style={{
+        position: "absolute",
+        bottom: 0,
+        background: "rgba(0, 0, 0, 0.5)",
+        color: "#ffffff",
+      }}
+    >
       <Grid item xs padding={3}>
-        QEnergy Challenge - Avancini Leon
+        <Typography align="center">
+          QEnergy Challenge - Avancini Leon
+        </Typography>
       </Grid>
     </Grid>
   );

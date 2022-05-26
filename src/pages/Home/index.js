@@ -288,7 +288,7 @@ export const Home = () => {
   }
 
   return (
-    <div style={{ width: "100%", height: 400 }}>
+    <div style={{ width: "100%", height: 500 }}>
       <Grid container marginBottom={2}>
         <Button
           variant="contained"
@@ -300,10 +300,11 @@ export const Home = () => {
       </Grid>
 
       <DataGrid
+        style={{ background: "#fafafa" }}
         rows={projects}
         columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
+        pageSize={7}
+        rowsPerPageOptions={[7]}
         disableDensitySelector
         onCellEditCommit={handleCommit}
       />
