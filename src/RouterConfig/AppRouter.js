@@ -20,7 +20,7 @@ const AppRouter = () => {
         }}
       >
         <Header />
-        <main style={{ padding: "0px 30px" }}>
+        <main style={{ padding: "0px 30px", minHeight: "100vh" }}>
           <Routes>
             <Route path={LOGIN} element={<Login />} />
             <Route element={<PrivateRoute />}>
