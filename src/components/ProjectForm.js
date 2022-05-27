@@ -78,8 +78,8 @@ export const ProjectForm = ({ newProject, closeModal }) => {
       </Typography>
 
       <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
-        <Grid container direction={"column"} spacing={0.5}>
-          <Grid item>
+        <Grid container spacing={0.5}>
+          <Grid item xs={12}>
             <TextField
               name="project_name"
               required
@@ -88,7 +88,7 @@ export const ProjectForm = ({ newProject, closeModal }) => {
               fullWidth
             />
           </Grid>
-          <Grid item>
+          <Grid item xs={6}>
             <TextField
               name="project_status"
               required
@@ -105,14 +105,8 @@ export const ProjectForm = ({ newProject, closeModal }) => {
               ))}
             </TextField>
           </Grid>
-          <Grid item>
-            <FormControlLabel
-              control={<Checkbox name="operating" />}
-              label="Operating"
-            />
-          </Grid>
-          <Grid item></Grid>
-          <Grid item>
+
+          <Grid item xs={6}>
             <TextField
               name="technology"
               required
@@ -129,7 +123,7 @@ export const ProjectForm = ({ newProject, closeModal }) => {
               ))}
             </TextField>
           </Grid>
-          <Grid item>
+          <Grid item xs={6}>
             <TextField
               name="project_number"
               type="number"
@@ -139,7 +133,7 @@ export const ProjectForm = ({ newProject, closeModal }) => {
               fullWidth
             />
           </Grid>
-          <Grid item>
+          <Grid item xs={6}>
             <TextField
               name="country"
               required
@@ -156,7 +150,7 @@ export const ProjectForm = ({ newProject, closeModal }) => {
               ))}
             </TextField>
           </Grid>
-          <Grid item>
+          <Grid item xs={12}>
             <TextField
               name="regions"
               label="Regions"
@@ -164,7 +158,7 @@ export const ProjectForm = ({ newProject, closeModal }) => {
               fullWidth
             />
           </Grid>
-          <Grid item>
+          <Grid item xs={6}>
             <TextField
               name="wind_turbines"
               label="Wind turbines"
@@ -172,7 +166,7 @@ export const ProjectForm = ({ newProject, closeModal }) => {
               fullWidth
             />
           </Grid>
-          <Grid item>
+          <Grid item xs={6}>
             <TextField
               name="total_kW"
               label="Total kW"
@@ -181,7 +175,7 @@ export const ProjectForm = ({ newProject, closeModal }) => {
               fullWidth
             />
           </Grid>
-          <Grid item>
+          <Grid item xs={12}>
             <FormControl sx={{ width: 356 }}>
               <InputLabel id="responsible-people-label">
                 Responsible people
@@ -204,7 +198,7 @@ export const ProjectForm = ({ newProject, closeModal }) => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item>
+          <Grid item xs={12}>
             <TextField
               name="notes"
               label="Notes"
@@ -212,6 +206,12 @@ export const ProjectForm = ({ newProject, closeModal }) => {
               fullWidth
               multiline
               maxRows={4}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <FormControlLabel
+              control={<Checkbox name="operating" />}
+              label="Operating"
             />
           </Grid>
           <Grid item>
