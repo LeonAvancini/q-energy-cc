@@ -4,12 +4,7 @@ import React from "react";
 export const Header = () => {
   return (
     //   Maybe can I put logo and UsearName
-    <Grid
-      container
-      justifyContent={"center"}
-      marginBottom="40px"
-      paddingTop="20px"
-    >
+    <Grid container justifyContent={"center"} padding="20px">
       <Grid item>
         <img
           width="179"

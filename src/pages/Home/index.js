@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box, Button, Grid, Modal, Typography } from "@mui/material";
 
 import ProjectForm from "../../components/ProjectForm";
-import data from "../../data-mockup.json";
 import tableColumns from "./ProjectDataGridElements/columnTemplate";
+import { useDispatch, useSelector } from "react-redux";
+import { saveProjectInfo } from "../../redux/actions/projectActions";
 
 export const Home = () => {
-  const [projects, setProjects] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    setProjects(data.projects);
-  }, []);
+  const projects = useSelector((state) => state.projectInfo);
+  const dispatch = useDispatch();
 
   const handleOpen = () => setIsOpen(true);
 
@@ -20,10 +18,10 @@ export const Home = () => {
 
   const handleAddProject = (project) => {
     let lastProject = projects[projects.length - 1];
-    setProjects((actualProjects) => [
-      ...actualProjects,
-      { id: lastProject.id + 1, ...project },
-    ]);
+    console.log("TEST", project);
+    let newProjects = [...projects, { id: lastProject.id + 1, ...project }];
+
+    dispatch(saveProjectInfo(newProjects));
   };
 
   const handleCommit = (projectElement) => {
@@ -37,7 +35,7 @@ export const Home = () => {
         return { ...project };
       }
     });
-    setProjects(newProjects);
+    dispatch(saveProjectInfo(newProjects));
   };
 
   const columns = [
@@ -51,7 +49,7 @@ export const Home = () => {
           e.stopPropagation();
           let { id } = params.row;
           const newProjects = projects.filter((project) => project.id !== id);
-          setProjects(newProjects);
+          dispatch(saveProjectInfo(newProjects));
         };
         return (
           <Button
@@ -76,7 +74,7 @@ export const Home = () => {
   }
 
   return (
-    <div style={{ width: "100%", height: 500 }}>
+    <div style={{ width: "100%", margin: "20px 0px", height: 500 }}>
       <Grid container marginBottom={2}>
         <Button
           variant="contained"

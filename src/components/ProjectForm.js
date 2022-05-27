@@ -132,6 +132,7 @@ export const ProjectForm = ({ newProject, closeModal }) => {
           <Grid item>
             <TextField
               name="project_number"
+              type="number"
               required
               label="Project number"
               variant="outlined"
@@ -176,6 +177,7 @@ export const ProjectForm = ({ newProject, closeModal }) => {
               name="total_kW"
               label="Total kW"
               variant="outlined"
+              type="number"
               fullWidth
             />
           </Grid>
@@ -184,7 +186,6 @@ export const ProjectForm = ({ newProject, closeModal }) => {
               <InputLabel id="responsible-people-label">
                 Responsible people
               </InputLabel>
-              {/* FIXME: fix ux when are selected more than 3 persons  */}
               <Select
                 name="responsible_people"
                 labelId="responsible-people-label"
