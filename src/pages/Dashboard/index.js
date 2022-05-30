@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
+import AdquisisionPerYearChart from "./Charts/AdquisisionPerYearChart";
 import GeographicalDistributionChart from "./Charts/GeographicalDistributionChart";
 import KwsGeneratedChart from "./Charts/KwsGeneratedChart";
 import ProjectStatus from "./Charts/ProjectStatusChart";
@@ -31,6 +32,10 @@ export const Dashboard = () => {
       </Grid>
       <Grid item xs={12} sm={5} style={containerStyled}>
         <GeographicalDistributionChart data={projects} />
+      </Grid>
+      <Grid item xs={12} sm={5} style={containerStyled}>
+        {/* <GeographicalDistributionChart data={projects} /> */}
+        <AdquisisionPerYearChart data={projects} />
       </Grid>
     </Grid>
   );
