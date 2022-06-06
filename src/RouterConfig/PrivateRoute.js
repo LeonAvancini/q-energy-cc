@@ -1,4 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
+
 import TabsComponent from "../components/TabsComponent";
 import { LOGIN } from "./routes";
 

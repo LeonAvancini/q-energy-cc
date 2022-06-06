@@ -1,8 +1,9 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Grid, Typography } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
-import React from "react";
+
 import { LOGIN } from "../RouterConfig/routes";
-import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 export const Header = () => {
