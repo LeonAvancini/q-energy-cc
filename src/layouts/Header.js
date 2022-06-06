@@ -1,10 +1,26 @@
-import { Grid } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
+import LogoutIcon from "@mui/icons-material/Logout";
 import React from "react";
+import { LOGIN } from "../RouterConfig/routes";
+import { useNavigate } from "react-router-dom";
+import "./styles.css";
 
 export const Header = () => {
+  const isLogged = JSON.parse(localStorage.loginValidation ?? false) === true;
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    localStorage.setItem("loginValidation", false);
+    navigate(LOGIN);
+  };
+
   return (
-    //   Maybe can I put logo and UsearName
-    <Grid container justifyContent={"center"} padding="20px">
+    <Grid
+      container
+      justifyContent="space-between"
+      alignItems="center"
+      style={{ padding: "30px" }}
+    >
       <Grid item>
         <img
           width="179"
@@ -12,6 +28,16 @@ export const Header = () => {
           src="https://qenergy.b-cdn.net/wp-content/uploads/Q-Energy.svg"
           alt="q energy"
         />
+      </Grid>
+      <Grid>
+        {isLogged && (
+          <Button variant="contained" onClick={handleLogOut}>
+            <Typography className={"logoutButton"} variant="body2">
+              Logout
+            </Typography>
+            <LogoutIcon />
+          </Button>
+        )}
       </Grid>
     </Grid>
   );

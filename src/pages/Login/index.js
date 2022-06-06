@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -8,9 +8,16 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { useNavigate } from "react-router-dom";
 import { HOME } from "../../RouterConfig/routes";
+import { Grid, IconButton } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 export const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,10 +42,13 @@ export const Login = () => {
     <Container
       component="main"
       maxWidth="xs"
-      style={{ display: "flex", minHeight: "100vh", flexDirection: "column" }}
+      style={{
+        display: "flex",
+        minHeight: "100vh",
+        flexDirection: "column",
+      }}
     >
       <CssBaseline />
-
       <Box
         sx={{
           marginTop: 8,
@@ -46,8 +56,18 @@ export const Login = () => {
           flexDirection: "column",
           alignItems: "center",
         }}
+        style={{
+          background: "#ffffff",
+          padding: "1.5rem",
+          borderRadius: "1rem",
+        }}
       >
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          noValidate
+          sx={{ mt: 1, width: "100%" }}
+        >
           <TextField
             margin="normal"
             required
@@ -59,17 +79,30 @@ export const Login = () => {
             autoFocus
             defaultValue={"leon@qenergy.de"}
           />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            defaultValue={"youcanican1234"}
-          />
+          <Grid style={{ position: "relative" }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type={showPassword ? "text" : "password"}
+              id="password"
+              autoComplete="current-password"
+              defaultValue={"youcanican1234"}
+            />
+            <IconButton
+              aria-label="toggle password visibility"
+              onClick={handleClickShowPassword}
+              style={{
+                position: "absolute",
+                right: "0px",
+                bottom: "14px",
+              }}
+            >
+              {showPassword ? <VisibilityOff /> : <Visibility />}
+            </IconButton>
+          </Grid>
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"

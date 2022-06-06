@@ -79,7 +79,7 @@ export const Home = () => {
         <Button
           variant="contained"
           onClick={handleOpen}
-          style={{ textTransform: "none" }}
+          style={{ textTransform: "none", marginLeft: "1.3rem" }}
         >
           Add a project
         </Button>
