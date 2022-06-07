@@ -1,5 +1,11 @@
 import React from "react";
 import { Typography } from "@mui/material";
+import styled from "styled-components";
+
+const ImgStyled = styled.img`
+  width: 100%;
+  height: auto;
+`;
 
 const KwsGeneratedChart = ({ data }) => {
   const KwsGeneratedPerProject = data.reduce(
@@ -24,13 +30,13 @@ const KwsGeneratedChart = ({ data }) => {
       ],
     },
   };
+
   return (
     <>
       <Typography variant="h6" align="center">
-        Total kWs generated per project
+        Total kWs generated
       </Typography>
-      <img
-        style={{ width: "100%", height: "auto" }}
+      <ImgStyled
         alt="total kWs generated chart"
         src={`https://quickchart.io/chart?c=${JSON.stringify(
           totalKwsChartStatus

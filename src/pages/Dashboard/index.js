@@ -6,37 +6,37 @@ import GeographicalDistributionChart from "./Charts/GeographicalDistributionChar
 import KwsGeneratedChart from "./Charts/KwsGeneratedChart";
 import ProjectStatus from "./Charts/ProjectStatusChart";
 import WindTurbinesChart from "./Charts/WindTurbinesChart";
+import styled from "styled-components";
 
-const containerStyled = {
-  margin: "20px 0px",
-  background: "white",
-  borderRadius: "15px",
-  padding: "10px",
-  border: "1px solid #005bbe",
-  maxWidth: "700px",
-};
+const GridStyled = styled(Grid)`
+  background: white;
+  border-radius: 15px;
+  border: 1px solid #005bbe;
+  max-width: 700px;
+  padding: 10px;
+  margin: 20px 4px !important;
+`;
 
 export const Dashboard = () => {
   const projects = useSelector((state) => state.projectInfo);
 
   return (
     <Grid container justifyContent="space-around">
-      <Grid item xs={12} sm={5} style={containerStyled}>
+      <GridStyled item xs={12} sm={5}>
         <ProjectStatus data={projects} />
-      </Grid>
-      <Grid item xs={12} sm={5} style={containerStyled}>
+      </GridStyled>
+      <GridStyled item xs={12} sm={5}>
         <WindTurbinesChart data={projects} />
-      </Grid>
-      <Grid item xs={12} sm={5} style={containerStyled}>
+      </GridStyled>
+      <GridStyled item xs={12} sm={5}>
         <KwsGeneratedChart data={projects} />
-      </Grid>
-      <Grid item xs={12} sm={5} style={containerStyled}>
+      </GridStyled>
+      <GridStyled item xs={12} sm={5}>
         <GeographicalDistributionChart data={projects} />
-      </Grid>
-      <Grid item xs={12} sm={5} style={containerStyled}>
-        {/* <GeographicalDistributionChart data={projects} /> */}
+      </GridStyled>
+      <GridStyled item xs={12} sm={5}>
         <AdquisisionPerYearChart data={projects} />
-      </Grid>
+      </GridStyled>
     </Grid>
   );
 };

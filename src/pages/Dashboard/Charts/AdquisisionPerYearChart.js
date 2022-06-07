@@ -1,5 +1,11 @@
 import React from "react";
 import { Typography } from "@mui/material";
+import styled from "styled-components";
+
+const ImgStyled = styled.img`
+  width: 100%;
+  height: auto;
+`;
 
 export const AdquisisionPerYearChart = ({ data }) => {
   const projectWindTurbines = data.reduce((acum, act) => {
@@ -31,13 +37,13 @@ export const AdquisisionPerYearChart = ({ data }) => {
       ],
     },
   };
+
   return (
     <>
       <Typography variant="h6" align="center">
-        Timeline of acquisition by years
+        Timeline of acquisition (years)
       </Typography>
-      <img
-        style={{ width: "100%", height: "auto" }}
+      <ImgStyled
         alt="wind turbines quantity chart"
         src={`https://quickchart.io/chart?c=${JSON.stringify(
           AdquisisionPerYearChartStatus

@@ -1,11 +1,22 @@
 import React, { useState } from "react";
-import { DataGrid } from "@mui/x-data-grid";
 import { Box, Button, Grid, Modal, Typography } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { DataGrid } from "@mui/x-data-grid";
+import styled from "styled-components";
 
 import ProjectForm from "../../components/ProjectForm";
 import tableColumns from "./ProjectDataGridElements/columnTemplate";
-import { useDispatch, useSelector } from "react-redux";
 import { saveProjectInfo } from "../../redux/actions/projectActions";
+
+const DivStyled = styled.div`
+  width: 100%;
+  margin: 20px 0px;
+  height: 500px;
+`;
+const ButtonStyled = styled(Button)`
+  text-transform: none !important;
+  margin-left: 1.3rem !important;
+`;
 
 export const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +29,6 @@ export const Home = () => {
 
   const handleAddProject = (project) => {
     let lastProject = projects[projects.length - 1];
-    console.log("TEST", project);
     let newProjects = [...projects, { id: lastProject.id + 1, ...project }];
 
     dispatch(saveProjectInfo(newProjects));
@@ -53,10 +63,10 @@ export const Home = () => {
         };
         return (
           <Button
+            style={{ textTransform: "none" }}
             variant="contained"
             color="error"
             onClick={onClick}
-            style={{ textTransform: "none" }}
           >
             Delete
           </Button>
@@ -74,15 +84,11 @@ export const Home = () => {
   }
 
   return (
-    <div style={{ width: "100%", margin: "20px 0px", height: 500 }}>
+    <DivStyled>
       <Grid container marginBottom={2}>
-        <Button
-          variant="contained"
-          onClick={handleOpen}
-          style={{ textTransform: "none", marginLeft: "1.3rem" }}
-        >
+        <ButtonStyled variant="contained" onClick={handleOpen}>
           Add a project
-        </Button>
+        </ButtonStyled>
       </Grid>
 
       <DataGrid
@@ -100,7 +106,7 @@ export const Home = () => {
           <ProjectForm newProject={handleAddProject} closeModal={handleClose} />
         </Box>
       </Modal>
-    </div>
+    </DivStyled>
   );
 };
 

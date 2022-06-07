@@ -1,5 +1,11 @@
 import React from "react";
 import { Typography } from "@mui/material";
+import styled from "styled-components";
+
+const ImgStyled = styled.img`
+  width: 100%;
+  height: auto;
+`;
 
 export const ProjectStatusChart = ({ data }) => {
   const projectStatus = data.reduce((acum, act) => {
@@ -29,13 +35,13 @@ export const ProjectStatusChart = ({ data }) => {
       ],
     },
   };
+
   return (
     <>
       <Typography variant="h6" align="center">
-        Project Status
+        Projects Status
       </Typography>
-      <img
-        style={{ width: "100%", height: "auto" }}
+      <ImgStyled
         alt="project status chart"
         src={`https://quickchart.io/chart?c=${JSON.stringify(
           projectStatusChartValues

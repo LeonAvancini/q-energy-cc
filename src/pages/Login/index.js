@@ -12,8 +12,24 @@ import {
   FormControlLabel,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import styled from "styled-components";
 
 import { HOME } from "../../RouterConfig/routes";
+
+const ContainerStyled = styled(Container)`
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+`;
+const BoxStyled = styled(Box)`
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  padding: 1.5rem;
+  borderradius: 1rem;
+`;
 
 export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -43,29 +59,9 @@ export const Login = () => {
   };
 
   return (
-    <Container
-      component="main"
-      maxWidth="xs"
-      style={{
-        display: "flex",
-        minHeight: "100vh",
-        flexDirection: "column",
-      }}
-    >
+    <ContainerStyled component="main" maxWidth="xs">
       <CssBaseline />
-      <Box
-        sx={{
-          marginTop: 8,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-        style={{
-          background: "#ffffff",
-          padding: "1.5rem",
-          borderRadius: "1rem",
-        }}
-      >
+      <BoxStyled>
         <Box
           component="form"
           onSubmit={handleSubmit}
@@ -98,11 +94,7 @@ export const Login = () => {
             <IconButton
               aria-label="toggle password visibility"
               onClick={handleClickShowPassword}
-              style={{
-                position: "absolute",
-                right: "0px",
-                bottom: "14px",
-              }}
+              style={{ position: "absolute", right: "0px", bottom: "14px" }}
             >
               {showPassword ? <VisibilityOff /> : <Visibility />}
             </IconButton>
@@ -120,8 +112,8 @@ export const Login = () => {
             Sign In
           </Button>
         </Box>
-      </Box>
-    </Container>
+      </BoxStyled>
+    </ContainerStyled>
   );
 };
 

@@ -2,9 +2,22 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Grid, Typography } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
+import styled from "styled-components";
 
 import { LOGIN } from "../RouterConfig/routes";
-import "./styles.css";
+
+const GridStyled = styled(Grid)`
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+`;
+const TypographyStyled = styled(Typography)`
+text-transform:none;
+  @media (max-width: 600px){
+    display: none;
+  }
+}
+`;
 
 export const Header = () => {
   const isLogged = JSON.parse(localStorage.loginValidation ?? false) === true;
@@ -16,12 +29,7 @@ export const Header = () => {
   };
 
   return (
-    <Grid
-      container
-      justifyContent="space-between"
-      alignItems="center"
-      style={{ padding: "30px" }}
-    >
+    <GridStyled container>
       <Grid item>
         <img
           width="179"
@@ -33,13 +41,13 @@ export const Header = () => {
       <Grid>
         {isLogged && (
           <Button variant="contained" onClick={handleLogOut}>
-            <Typography className={"logoutButton"} variant="body2">
+            <TypographyStyled mr={1} variant="body1">
               Logout
-            </Typography>
+            </TypographyStyled>
             <LogoutIcon />
           </Button>
         )}
       </Grid>
-    </Grid>
+    </GridStyled>
   );
 };

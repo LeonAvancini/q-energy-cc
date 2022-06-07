@@ -1,5 +1,11 @@
 import React from "react";
 import { Typography } from "@mui/material";
+import styled from "styled-components";
+
+const ImgStyled = styled.img`
+  width: 100%;
+  height: auto;
+`;
 
 export const GeographicalDistributionChart = ({ data }) => {
   const projectsPerCountry = data.reduce(
@@ -49,8 +55,7 @@ export const GeographicalDistributionChart = ({ data }) => {
       <Typography variant="h6" align="center">
         Project Status
       </Typography>
-      <img
-        style={{ width: "100%", height: "auto" }}
+      <ImgStyled
         alt="project status chart"
         src={`https://quickchart.io/chart?c=${JSON.stringify(
           GeographicalDistributionChartValues

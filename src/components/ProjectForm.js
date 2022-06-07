@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Button,
   Checkbox,
@@ -12,7 +13,26 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import { useState } from "react";
+import styled from "styled-components";
+
+const GridStyled = styled(Grid)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  background: #ffffff;
+  border: 2px solid #fafafa;
+  border-radius: 10px;
+  box-shadow: 24px;
+  padding: 10px;
+`;
+
+const ButtonStyled = styled(Button)`
+  text-transform: none;
+  margin-top: 3px;
+  margin-bottom: 2px;
+`;
 
 const status = ["Acquisition", "In Developement", "Execution"];
 const technologies = ["Wind", "PV", "CSP"];
@@ -59,20 +79,7 @@ export const ProjectForm = ({ newProject, closeModal }) => {
   };
 
   return (
-    <Grid
-      style={{
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        width: 380,
-        background: "white",
-        border: "2px solid #fafafa",
-        borderRadius: 10,
-        boxShadow: 24,
-        padding: 10,
-      }}
-    >
+    <GridStyled>
       <Typography align="center" variant="h5">
         Create a project
       </Typography>
@@ -215,19 +222,13 @@ export const ProjectForm = ({ newProject, closeModal }) => {
             />
           </Grid>
           <Grid item>
-            <Button
-              style={{ textTransform: "none" }}
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
+            <ButtonStyled type="submit" fullWidth variant="contained">
               Add project
-            </Button>
+            </ButtonStyled>
           </Grid>
         </Grid>
       </Box>
-    </Grid>
+    </GridStyled>
   );
 };
 
